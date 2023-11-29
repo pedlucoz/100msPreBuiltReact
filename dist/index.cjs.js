@@ -6049,7 +6049,7 @@ var init_constants3 = __esm({
               },
               join_form: {
                 join_btn_type: import_join_form.JoinForm_JoinBtnType.JOIN_BTN_TYPE_JOIN_ONLY,
-                join_btn_label: "Join Now",
+                join_btn_label: "Entrar",
                 go_live_btn_label: "Go Live"
               }
             }
@@ -8402,10 +8402,10 @@ var init_StreamActions = __esm({
       const permissions = (0, import_react_sdk32.useHMSStore)(import_react_sdk32.selectPermissions);
       const isMobile = (0, import_react_use6.useMedia)(config.media.md);
       if (!isRecordingOn || // if only browser recording is enabled, stop recording is shown
-      // so no need to show this as it duplicates
-      [permissions == null ? void 0 : permissions.browserRecording, !isServerRecordingOn, !isHLSRecordingOn, isBrowserRecordingOn].every(
-        (value) => !!value
-      )) {
+        // so no need to show this as it duplicates
+        [permissions == null ? void 0 : permissions.browserRecording, !isServerRecordingOn, !isHLSRecordingOn, isBrowserRecordingOn].every(
+          (value) => !!value
+        )) {
         if (!(isMobile && isRecordingOn))
           return null;
       }
@@ -9061,9 +9061,11 @@ var init_RaiseHand = __esm({
     init_useMetadata();
     RaiseHand = () => {
       const { isHandRaised, toggleHandRaise } = useMyMetadata();
-      return /* @__PURE__ */ import_react78.default.createElement(Tooltip, { title: isHandRaised ? "Lower hand" : "Raise hand" }, /* @__PURE__ */ import_react78.default.createElement(IconButton_default, { "data-testid": "hand_raise_btn", active: !isHandRaised, onClick: () => __async(void 0, null, function* () {
-        return yield toggleHandRaise();
-      }) }, /* @__PURE__ */ import_react78.default.createElement(import_react_icons32.HandIcon, null)));
+      return /* @__PURE__ */ import_react78.default.createElement(Tooltip, { title: isHandRaised ? "Lower hand" : "Raise hand" }, /* @__PURE__ */ import_react78.default.createElement(IconButton_default, {
+        "data-testid": "hand_raise_btn", active: !isHandRaised, onClick: () => __async(void 0, null, function* () {
+          return yield toggleHandRaise();
+        })
+      }, /* @__PURE__ */ import_react78.default.createElement(import_react_icons32.HandIcon, null)));
     };
   }
 });
@@ -16490,9 +16492,11 @@ var init_HLSView = __esm({
                   zIndex: 21
                 }
               },
-              /* @__PURE__ */ import_react162.default.createElement(IconButton, { onClick: () => __async(void 0, null, function* () {
-                return yield hlsPlayer == null ? void 0 : hlsPlayer.play();
-              }), "data-testid": "play_btn" }, /* @__PURE__ */ import_react162.default.createElement(import_react_icons76.PlayIcon, { width: "60px", height: "60px" }))
+              /* @__PURE__ */ import_react162.default.createElement(IconButton, {
+                onClick: () => __async(void 0, null, function* () {
+                  return yield hlsPlayer == null ? void 0 : hlsPlayer.play();
+                }), "data-testid": "play_btn"
+              }, /* @__PURE__ */ import_react162.default.createElement(import_react_icons76.PlayIcon, { width: "60px", height: "60px" }))
             ),
             /* @__PURE__ */ import_react162.default.createElement(
               Flex,
@@ -17484,7 +17488,7 @@ var init_ToastConfig = __esm({
     });
     ToastConfig = {
       PEER_LIST: {
-        single: function(notification) {
+        single: function (notification) {
           var _a7, _b7;
           if (notification.data.length === 1) {
             return {
@@ -17505,14 +17509,14 @@ var init_ToastConfig = __esm({
         }
       },
       PEER_JOINED: {
-        single: function(notification) {
+        single: function (notification) {
           var _a7;
           return {
             title: `${(_a7 = notification.data) == null ? void 0 : _a7.name} joined`,
             icon: /* @__PURE__ */ import_react174.default.createElement(import_react_icons81.PeopleAddIcon, null)
           };
         },
-        multiple: function(notifications) {
+        multiple: function (notifications) {
           return {
             title: `${notifications[notifications.length - 1].data.name} and ${notifications.length - 1} others joined`,
             icon: /* @__PURE__ */ import_react174.default.createElement(import_react_icons81.PeopleAddIcon, null)
@@ -17520,14 +17524,14 @@ var init_ToastConfig = __esm({
         }
       },
       PEER_LEFT: {
-        single: function(notification) {
+        single: function (notification) {
           var _a7;
           return {
             title: `${(_a7 = notification.data) == null ? void 0 : _a7.name} left`,
             icon: /* @__PURE__ */ import_react174.default.createElement(import_react_icons81.PeopleRemoveIcon, null)
           };
         },
-        multiple: function(notifications) {
+        multiple: function (notifications) {
           return {
             title: `${notifications[notifications.length - 1].data.name} and ${notifications.length - 1} others left`,
             icon: /* @__PURE__ */ import_react174.default.createElement(import_react_icons81.PeopleRemoveIcon, null)

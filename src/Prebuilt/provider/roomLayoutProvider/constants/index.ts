@@ -21,7 +21,7 @@ export const defaultLayout: Layout = {
           },
           join_form: {
             join_btn_type: JoinForm_JoinBtnType.JOIN_BTN_TYPE_JOIN_ONLY,
-            join_btn_label: 'Join Now',
+            join_btn_label: 'Entrar',
             go_live_btn_label: 'Go Live',
           },
         },

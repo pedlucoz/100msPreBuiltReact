@@ -5142,7 +5142,7 @@ var defaultLayout = {
           },
           join_form: {
             join_btn_type: JoinForm_JoinBtnType.JOIN_BTN_TYPE_JOIN_ONLY,
-            join_btn_label: "Join Now",
+            join_btn_label: "Entrar",
             go_live_btn_label: "Go Live"
           }
         }
@@ -7256,10 +7256,10 @@ var RecordingStatus = () => {
   const permissions = useHMSStore24(selectPermissions6);
   const isMobile = useMedia5(config.media.md);
   if (!isRecordingOn || // if only browser recording is enabled, stop recording is shown
-  // so no need to show this as it duplicates
-  [permissions == null ? void 0 : permissions.browserRecording, !isServerRecordingOn, !isHLSRecordingOn, isBrowserRecordingOn].every(
-    (value) => !!value
-  )) {
+    // so no need to show this as it duplicates
+    [permissions == null ? void 0 : permissions.browserRecording, !isServerRecordingOn, !isHLSRecordingOn, isBrowserRecordingOn].every(
+      (value) => !!value
+    )) {
     if (!(isMobile && isRecordingOn))
       return null;
   }
@@ -7835,9 +7835,11 @@ import React60 from "react";
 import { HandIcon as HandIcon3 } from "@100mslive/react-icons";
 var RaiseHand = () => {
   const { isHandRaised, toggleHandRaise } = useMyMetadata();
-  return /* @__PURE__ */ React60.createElement(Tooltip, { title: isHandRaised ? "Lower hand" : "Raise hand" }, /* @__PURE__ */ React60.createElement(IconButton_default, { "data-testid": "hand_raise_btn", active: !isHandRaised, onClick: () => __async(void 0, null, function* () {
-    return yield toggleHandRaise();
-  }) }, /* @__PURE__ */ React60.createElement(HandIcon3, null)));
+  return /* @__PURE__ */ React60.createElement(Tooltip, { title: isHandRaised ? "Lower hand" : "Raise hand" }, /* @__PURE__ */ React60.createElement(IconButton_default, {
+    "data-testid": "hand_raise_btn", active: !isHandRaised, onClick: () => __async(void 0, null, function* () {
+      return yield toggleHandRaise();
+    })
+  }, /* @__PURE__ */ React60.createElement(HandIcon3, null)));
 };
 
 // src/Prebuilt/components/ScreenShareToggle.jsx
@@ -14477,7 +14479,7 @@ var HandRaiseAction = React138.forwardRef(({ id = "", isSingleHandRaise = true }
 });
 var ToastConfig = {
   PEER_LIST: {
-    single: function(notification) {
+    single: function (notification) {
       var _a7, _b7;
       if (notification.data.length === 1) {
         return {
@@ -14498,14 +14500,14 @@ var ToastConfig = {
     }
   },
   PEER_JOINED: {
-    single: function(notification) {
+    single: function (notification) {
       var _a7;
       return {
         title: `${(_a7 = notification.data) == null ? void 0 : _a7.name} joined`,
         icon: /* @__PURE__ */ React138.createElement(PeopleAddIcon2, null)
       };
     },
-    multiple: function(notifications) {
+    multiple: function (notifications) {
       return {
         title: `${notifications[notifications.length - 1].data.name} and ${notifications.length - 1} others joined`,
         icon: /* @__PURE__ */ React138.createElement(PeopleAddIcon2, null)
@@ -14513,14 +14515,14 @@ var ToastConfig = {
     }
   },
   PEER_LEFT: {
-    single: function(notification) {
+    single: function (notification) {
       var _a7;
       return {
         title: `${(_a7 = notification.data) == null ? void 0 : _a7.name} left`,
         icon: /* @__PURE__ */ React138.createElement(PeopleRemoveIcon3, null)
       };
     },
-    multiple: function(notifications) {
+    multiple: function (notifications) {
       return {
         title: `${notifications[notifications.length - 1].data.name} and ${notifications.length - 1} others left`,
         icon: /* @__PURE__ */ React138.createElement(PeopleRemoveIcon3, null)
